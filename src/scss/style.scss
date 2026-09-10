@@ -1,6 +1,6 @@
 @use 'fonts'as *;
 @use 'variables'as *;
-@use 'mixins'as *; // _mixins.scss 파일이 같은 폴더에 있는 경우
+@use 'mixins'as m; // _mixins.scss 파일이 같은 폴더에 있는 경우
 
 html {
   box-sizing: border-box;
@@ -19,7 +19,14 @@ p {
   margin: 0;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 a {
+  color: inherit;
   text-decoration: none;
 }
 
@@ -34,11 +41,269 @@ button:focus-visible {
 }
 
 body {
-
+  @include m.font-style(16px, 400, 1);
+  display: flex;
+  flex-direction: column;
+  min-height: 90dvh;
+  margin: 0;
+  background-color: $bg-blue-700;
 }
 
 main {
+  width: min(390px, 100%);
+  flex: 1;
+  margin: 0 auto;
 
+  @include m.mq('tablet') {
+    width: min(780px, 100%);
+  }
+
+  @include m.mq('desktop') {
+    width: min(1400px, 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 가입 */
+  section.subscribe {
+    width: min(375px, 100%);
+    margin: 0 auto;
+    padding-block-end: 44px;
+    background-color: $bg-white;
+
+    display: flex;
+    flex-direction: column;
+
+    @include m.mq('tablet') {
+      width: min(608px, 100%);
+      border-radius: 36px;
+      padding: 40px;
+    }
+
+    @include m.mq('desktop') {
+      width: min(904px, 100%);
+      flex-direction: row-reverse;
+      reading-flow: flex-visual;
+      box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .illustration {
+      inline-size: 100%;
+      max-inline-size: 100%;
+      block-size: auto;
+      object-fit: cover;
+    }
+
+    .newsletter {
+      padding: 0 24px;
+
+      .title {
+        margin-block-start: 40px;
+        @include m.font-style(40px, 700, 1);
+        color: $bg-blue-800;
+      }
+
+      .description {
+        margin-block-start: 24px;
+        @include m.font-style(16px, 400, 1.5);
+        color: $bg-blue-800;
+      }
+
+      .benefits {
+        margin-block-start: 24px;
+        @include m.font-style(16px, 400, 1.5);
+
+        li {
+          display: flex;
+          align-items: flex-start;
+
+          &::before {
+            content: '';
+            flex-shrink: 0;
+            width: 1.3125rem;
+            height: 1.3125rem;
+            background-image: url('../../images/icon-list.svg');
+            background-repeat: no-repeat;
+            background-position: center center;
+          }
+
+          span {
+            margin-inline-start: 16px;
+            flex: 1 1 0;
+          }
+
+          &:not(:first-child) {
+            margin-block-start: 8px;
+          }
+        }
+      }
+
+      form {
+        margin-block-start: 40px;
+
+        .input-box {
+          display: flow-root;
+
+          label {
+            float: left;
+            @include m.font-style(12px, 700, 1.5);
+          }
+
+          span {
+            display: none;
+            float: right;
+            @include m.font-style(12px, 700, 1.5);
+            color: $bg-red;
+
+            &.invalid {
+              display: block;
+              color: $bg-red;
+            }
+          }
+        }
+
+        input[name='email'] {
+          margin-block-start: 8px;
+          width: 100%;
+          padding: 16px 24px;
+          border: 1px solid $bg-gray;
+          border-radius: 8px;
+
+          &::placeholder {
+            @include m.font-style(16px, 400, 1.5);
+            color: $bg-gray;
+          }
+
+          &:focus {
+            border-color: $bg-blue-800;
+
+            &::placeholder {
+              color: $bg-blue-800;
+            }
+          }
+
+          &.invald {
+            background-color: #ffe7e6;
+            color: $bg-red;
+            border-color: $bg-red;
+          }
+
+        }
+
+        button {
+          margin-block-start: 24px;
+          width: 100%;
+          background-color: $bg-blue-800;
+          padding: 16px 48px;
+          border-radius: 8px;
+          color: $bg-white;
+        }
+      }
+    }
+  }
+
+  /* success */
+  section.success {
+    width: min(327px, 100%);
+    margin: 0 auto;
+    margin-block-start: 149px;
+    padding-inline: 24px;
+    background-color: $bg-white;
+
+    .check {
+      width: 64px;
+      aspect-ratio: 64 / 64;
+    }
+
+    .title {
+      margin-block-start: 32px;
+      @include m.font-style(40px, 700, 1.0);
+    }
+
+    .description {
+      margin-block-start: 32px;
+      color: $bg-blue-800;
+      @include m.font-style(16px, 400, 1.5);
+
+      strong {
+        @include m.font-style(16px, 700, 1.5);
+      }
+    }
+
+    .dismiss-btn {
+      margin-block-start: 263px;
+      width: 100%;
+      padding: 16px 54px;
+      color: #fff;
+      background-color: $bg-blue-800;
+      border-radius: 8px;
+      @include m.font-style(16px, 700, 1.5);
+    }
+  }
+}
+
+.primary--success {
+  background-color: $bg-white;
+}
+
+
+.modal {
+  position: fixed;
+  background-color: $bg-blue-700;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  display: block;
+  padding-block-end: 44px;
+
+  &.active {
+    display: block;
+  }
+
+  .modal-content {
+    background-color: #fff;
+    width: 504px;
+    border-radius: 36px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 64px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    animation: slidefade 0.5s linear;
+
+    .check {
+      width: 64px;
+      aspect-ratio: 64 / 64;
+    }
+
+    .title {
+      margin-block-start: 32px;
+      @include m.font-style(56px, 700, 1.0);
+    }
+
+    .description {
+      margin-block-start: 32px;
+      color: $bg-blue-800;
+      @include m.font-style(16px, 400, 1.5);
+
+      strong {
+        @include m.font-style(16px, 700, 1.5);
+      }
+    }
+
+    .dismiss-btn {
+      margin-block-start: 32px;
+      width: 100%;
+      padding: 16px 54px;
+      color: #fff;
+      background-color: $bg-blue-800;
+      border-radius: 8px;
+      @include m.font-style(16px, 700, 1.5);
+    }
+  }
 }
 
 .attribution {
@@ -50,3 +315,7 @@ main {
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
+
+// @media (min-width: 768px) {}
+
+// @media (min-width: 1024px) {}
