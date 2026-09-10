@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "Roboto", sans-serif;
+  src: url("../../fonts/Roboto-Regular.ttf") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto", sans-serif;
+  src: url("../../fonts/Roboto-Bold.ttf") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+  border: 0;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--Grey-500);
+  outline-offset: 2px;
+}
+
+.attribution {
+  margin-top: auto;
+  font-size: 0.6875rem;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,52 @@
+@use 'fonts'as *;
+@use 'variables'as *;
+@use 'mixins'as *; // _mixins.scss 파일이 같은 폴더에 있는 경우
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+  border: 0;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--Grey-500);
+  outline-offset: 2px;
+}
+
+body {
+
+}
+
+main {
+
+}
+
+.attribution {
+  margin-top: auto;
+  font-size: 0.6875rem;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
