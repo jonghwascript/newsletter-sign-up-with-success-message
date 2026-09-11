@@ -244,6 +244,16 @@ main section.subscribe .newsletter form button {
   border-radius: 8px;
   color: #ffffff;
 }
+main section.subscribe .newsletter form button:hover {
+  /* 맵에 해당 기기 이름이 있는지 확인 */
+  /* 🌟 min-width 기준으로 미디어 쿼리 자동 생성 */
+}
+@media (min-width: 768px) {
+  main section.subscribe .newsletter form button:hover {
+    background: linear-gradient(0deg, rgb(255, 106, 58) 0%, rgb(255, 82, 123) 100%);
+    /* 믹스인을 호출할 때 전달한 스타일이 여기에 쏙 들어갑니다 */
+  }
+}
 main {
   /* success */
 }
@@ -298,6 +308,16 @@ main section.success .dismiss-btn {
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
+}
+main section.success .dismiss-btn:hover {
+  /* 맵에 해당 기기 이름이 있는지 확인 */
+  /* 🌟 min-width 기준으로 미디어 쿼리 자동 생성 */
+}
+@media (min-width: 768px) {
+  main section.success .dismiss-btn:hover {
+    background: linear-gradient(0deg, rgb(255, 106, 58) 0%, rgb(255, 82, 123) 100%);
+    /* 믹스인을 호출할 때 전달한 스타일이 여기에 쏙 들어갑니다 */
+  }
 }
 
 .primary--success {
@@ -369,6 +389,9 @@ main section.success .dismiss-btn {
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
+}
+.modal .modal-content .dismiss-btn:hover {
+  background: linear-gradient(0deg, rgb(255, 106, 58) 0%, rgb(255, 82, 123) 100%);
 }
 
 .attribution {

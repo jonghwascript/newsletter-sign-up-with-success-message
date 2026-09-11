@@ -204,6 +204,12 @@ main {
           padding: 16px 48px;
           border-radius: 8px;
           color: $bg-white;
+
+          &:hover {
+            @include m.mq('tablet') {
+              background: $bg-gradient;
+            }
+          }
         }
       }
     }
@@ -249,6 +255,12 @@ main {
       background-color: $bg-blue-800;
       border-radius: 8px;
       @include m.font-style(16px, 700, 1.5);
+
+      &:hover {
+        @include m.mq('tablet') {
+          background: $bg-gradient;
+        }
+      }
     }
   }
 }
@@ -320,6 +332,10 @@ main {
       background-color: $bg-blue-800;
       border-radius: 8px;
       @include m.font-style(16px, 700, 1.5);
+
+      &:hover {
+        background: $bg-gradient;
+      }
     }
   }
 }
