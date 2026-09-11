@@ -36,7 +36,7 @@ button {
 }
 
 button:focus-visible {
-  outline: 2px solid var(--Grey-500);
+  outline: 2px solid $bg-gray;
   outline-offset: 2px;
 }
 
@@ -193,7 +193,7 @@ main {
             }
           }
 
-          &.invald {
+          &.invalid {
             background-color: #ffe7e6;
             color: $bg-red;
             border-color: $bg-red;
@@ -220,6 +220,10 @@ main {
     margin-block-start: 149px;
     padding-inline: 24px;
     background-color: $bg-white;
+
+    @include m.mq('tablet') {
+      display: none;
+    }
 
     .check {
       width: 64px;
