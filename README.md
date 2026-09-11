@@ -1,112 +1,136 @@
-# Frontend Mentor - Newsletter sign-up form with success message
+# Frontend Mentor - Newsletter sign-up form with success message solution
 
-![Design preview for the Newsletter sign-up form with success message coding challenge](./preview.jpg)
+This is a solution to the [Newsletter sign-up form with success message challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/newsletter-signup-form-with-success-message-3FC1AZbNrv). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+  - [AI Collaboration](#ai-collaboration)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
+### The challenge
 
-## The challenge
-
-Your challenge is to build out this newsletter form and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users are able to:
 
 - Add their email and submit the form
 - See a success message with their email after successfully submitting the form
 - See form validation messages if:
   - The field is left empty
   - The email address is not formatted correctly
-- View the optimal layout for the interface depending on their device's screen size
+- View the optimal layout for the interface depending on their device's screen size (mobile shows a full-screen success page, tablet/desktop shows a centered success modal)
 - See hover and focus states for all interactive elements on the page
 
-### Want some support on the challenge? 
+### Screenshot
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+![Design preview for the Newsletter sign-up form with success message coding challenge](./screenshot.jpg)
 
-## Where to find everything
+### Links
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+- Solution URL: [Repository](https://github.com/jonghwascript/newsletter-sign-up-with-success-message.git)
+- Live Site URL: [Live site](https://jonghwascript.github.io/newsletter-sign-up-with-success-message
+)
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+## My process
 
-If you would like the Figma design file to gain experience using professional tools and build more accurate projects faster, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+### Built with
 
-All the required assets for this project are in the `/assets` folder. The images are already exported for the correct screen size and optimized.
+- Semantic HTML5 markup
+- SCSS (Dart Sass) with the module system (`@use`/`@forward`), partials for
+  variables/mixins/fonts, and a `map.get`/`map.has-key`-based `mq()` mixin for
+  breakpoints
+- CSS custom properties (used to expose the current breakpoint to JavaScript)
+- Flexbox
+- Mobile-first workflow
+- [jQuery](https://jquery.com/) - form submission handling and custom
+  validation UI
+- [Gulp](https://gulpjs.com/) - build pipeline (Sass compilation,
+  sourcemaps, Prettier formatting)
 
-We also include variable and static font files for the required fonts for this project. You can choose to either link to Google Fonts or use the local font files to host the fonts yourself. Note that we've removed the static font files for the font weights that aren't needed for this project.
+### What I learned
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+This project was as much about debugging real responsive/accessibility bugs
+as it was about building the UI. The full write-ups (with code snippets)
+live in the [`lessons/`](./lessons) folder; the highlights:
 
-## Using AI coding assistants
+- **`<picture>` `<source>` order matters.** The browser evaluates `<source>`
+  elements in document order and picks the *first* one whose `media` query
+  matches — not the most specific one. Listing a `min-width: 768px` source
+  before a `min-width: 1200px` source meant the desktop image was never
+  selected. See [`lessons/css.md`](./lessons/css.md).
+- **`max-width: 100%` alone doesn't fill a container.** An `<img>` without
+  an explicit `width` renders at its intrinsic size; `max-inline-size: 100%`
+  only caps growth. Adding `inline-size: 100%` alongside it was needed to
+  make the illustration actually fill its container on tablet.
+- **CSS custom properties only inherit downward.** Declaring
+  `--device-state` on `body` and overriding it on `main` meant reading the
+  value from `document.body` in JS always returned the initial value —
+  the override never reaches an ancestor. See
+  [`lessons/js.md`](./lessons/js.md) for the working vanilla JS/jQuery
+  versions.
+- **Use the form's `submit` event, not the button's `click` event**, to
+  gate logic on native HTML validation passing — the browser only fires
+  `submit` after all required fields validate.
+- **An undefined CSS custom property fails silently.** `outline: 2px solid
+  var(--Grey-500)` referenced a variable that didn't exist anywhere in the
+  codebase, which made the whole `outline` declaration invalid — combined
+  with a global `outline: none` reset, this silently removed the keyboard
+  focus indicator for every button. See
+  [`lessons/accessibility.md`](./lessons/accessibility.md).
+- **A `<label>` next to an `<input>` isn't automatically associated with
+  it.** Screen readers need `for`/`id` (or wrapping) to announce a label;
+  visual adjacency isn't enough.
+- **Mutually-exclusive responsive layouts need symmetric breakpoints.**
+  Showing a popup modal from tablet width up with `display: block` isn't
+  enough on its own — the mobile full-screen version needs the matching
+  `display: none` at the same breakpoint, or both render at once.
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+### Continued development
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+- Add automated linting (`stylelint`, `eslint`, `html-validate`) as real
+  `devDependencies` and wire them into the Gulp pipeline instead of running
+  them ad hoc.
+- Replace the jQuery-based form/validation script with vanilla JavaScript.
+- Add a proper accessible live region announcement when the invalid-email
+  message appears/disappears.
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+### Useful resources
 
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+- [MDN: Using the picture element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture) - clarified that `<source>` order (not specificity) decides which image loads.
+- [MDN: CSS custom properties (`--*`), Inheritance](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) - explained why a custom property set on a descendant never affects an ancestor's computed value.
+- [web.dev: Accessible forms](https://web.dev/learn/forms/form-field) - reference for correctly associating `<label>` and `<input>`.
 
-## Building your project
+### AI Collaboration
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+I used [Claude Code](https://claude.com/claude-code) as a pair-programming
+and code-review partner throughout this project.
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+- **What I used it for**: diagnosing Sass compilation errors (undefined
+  variables, deprecated global functions), debugging the `<picture>` source
+  order and image-sizing issues, explaining *why* a CSS custom property
+  wasn't reaching the element I expected, wiring up the jQuery form
+  validation logic, and running a structured review pass across
+  accessibility (axe rule categories), HTML (`html-validate`), CSS
+  (`stylelint`), and JavaScript (`eslint`).
+- **What worked well**: asking it to explain the *root cause* of a bug
+  (not just hand me a fix) meant I could apply the same reasoning
+  elsewhere — e.g. once I understood custom-property inheritance direction,
+  I could tell on my own that the focus-outline bug was the same class of
+  problem.
+- **What I'd do differently**: run the linting pass earlier in the project
+  instead of at the end, since several of the issues it caught (missing
+  label association, the undefined `--Grey-500` outline color) were cheap
+  to avoid from the start.
 
-## Deploying your project
+## Author
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
-
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
-
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
-
-## Create a custom `README.md`
-
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
-
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
-
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
-
-## Submitting your solution
-
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
-
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
-
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of our [community](https://www.frontendmentor.io/community). 
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- Frontend Mentor - [@jonghwascript](https://www.frontendmentor.io/profile/jonghwascript)
