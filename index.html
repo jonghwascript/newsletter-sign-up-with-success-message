@@ -1,72 +1,93 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- displays site properly based on user's device -->
-  <!-- jQuery CDN -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <title>
+      Frontend Mentor | Newsletter sign-up form with success message
+    </title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script defer src="./js/main.js"></script>
+  </head>
 
-  <title>
-    Frontend Mentor | Newsletter sign-up form with success message
-  </title>
-
-  <link rel="stylesheet" href="./css/style.css" />
-  <script defer src="./js/main.js"></script>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution {
-      font-size: 0.6875rem;
-      text-align: center;
-    }
-
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
-  </style>
-</head>
-
-<body>
-  <main>
-    <section aria-labelledby="newsletter-title" class="subscribe">
-      <picture>
-        <source srcset="./images/illustration-sign-up-desktop.svg" media="(min-width: 1200px)" />
-        <source srcset="./images/illustration-sign-up-tablet.svg" media="(min-width: 768px)" />
-        <img src="./images/illustration-sign-up-mobile.svg" alt="Stay updated!" class="illustration" />
-      </picture>
-      <div class="newsletter">
-        <h1 id="newsletter-title" class="title">Stay updated!</h1>
-        <p class="description">
-          Join 60,000+ product managers receiving monthly updates on:
-        </p>
-        <ul class="benefits">
-          <li><span>Product discovery and building what matters</span></li>
-          <li><span>Measuring to ensure updates are a success</span></li>
-          <li><span>And much more!</span></li>
-        </ul>
-        <form id="signup-form">
-          <div class="input-group">
-            <div class="input-box">
-              <label for="email">Email address</label><span id="email-error">Valid email required</span>
+  <body>
+    <main>
+      <section aria-labelledby="newsletter-title" class="subscribe">
+        <picture>
+          <source
+            srcset="./images/illustration-sign-up-desktop.svg"
+            media="(min-width: 1200px)"
+          />
+          <source
+            srcset="./images/illustration-sign-up-tablet.svg"
+            media="(min-width: 768px)"
+          />
+          <!-- 스크린 리더가 Stay updated!를 두번 읽기 때문에 뺀다 -->
+          <img
+            src="./images/illustration-sign-up-mobile.svg"
+            alt=""
+            aria-hidden="true"
+            class="illustration"
+          />
+        </picture>
+        <div class="newsletter">
+          <h1 id="newsletter-title" class="title">Stay updated!</h1>
+          <p class="description">
+            Join 60,000+ product managers receiving monthly updates on:
+          </p>
+          <ul class="benefits">
+            <li><span>Product discovery and building what matters</span></li>
+            <li><span>Measuring to ensure updates are a success</span></li>
+            <li><span>And much more!</span></li>
+          </ul>
+          <form id="signup-form">
+            <div class="input-group">
+              <div class="label-row">
+                <!-- 
+              유효성 검사 실패 시 화면에 에러 메시지가 뿅 하고 나타날 때, 스크린 리더가 이를 즉시 가로채서(알림처럼) 읽어주게 
+              만들려면 role="alert"나 aria-live 속성을 추가 
+              -->
+                <label for="email">Email address</label
+                ><span id="email-error" role="alert" aria-live="polite"
+                  >Valid email required</span
+                >
+              </div>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="email@company.com"
+                aria-describedby="email-error"
+                aria-invalid="false"
+                required
+              />
+              <button type="submit" class="subscribe-btn">
+                Subscribe to monthly newsletter
+              </button>
             </div>
-            <input type="email" name="email" id="email" placeholder="email@company.com" aria-describedby="email-error" aria-invalid="false" required />
-            <button type="submit" class="subscribe-btn">Subscribe to monthly newsletter</button>
-          </div>
-        </form>
-      </div>
-    </section>
-  </main>
+          </form>
+        </div>
+      </section>
+    </main>
 
-  <footer class="attribution">
-    Challenge by
-    <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-    Coded by
-    <a href="https://www.frontendmentor.io/profile/jonghwascript">jonghwascript</a>.
-  </footer>
-</body>
-
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by
+      <a href="https://www.frontendmentor.io/profile/jonghwascript"
+        >jonghwascript</a
+      >.
+    </footer>
+  </body>
 </html>

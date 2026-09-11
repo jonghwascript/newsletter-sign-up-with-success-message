@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
-$font-primary: 'Roboto',
-sans-serif;
+$font-primary: 'Roboto', sans-serif;
 
 $font-size-preset1: 56px;
 $font-size-preset2: 16px;
@@ -13,11 +12,14 @@ $bg-blue-800: #242742;
 $bg-blue-700: #36384d;
 $bg-red: #ff6155;
 
-$bg-gradient: linear-gradient(0deg,
+$bg-gradient: linear-gradient(
+  0deg,
   rgba(255, 106, 58, 1) 0%,
-  rgba(255, 82, 123, 1) 100%);
+  rgba(255, 82, 123, 1) 100%
+);
 
-$breakpoints: ('mobile': 480px,
+$breakpoints: (
+  'mobile': 480px,
   'tablet': 768px,
   'desktop': 1200px,
 );

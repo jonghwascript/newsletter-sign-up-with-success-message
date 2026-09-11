@@ -1,45 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Frontend Mentor | Newsletter sign-up form with success message
+    </title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script defer src="./js/main.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
-  <!-- jQuery CDN -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <link rel="stylesheet" href="./css/style.css" />
-  <script defer src="./js/main.js"></script>
-</head>
+  <body class="primary--success">
+    <main>
+      <section class="success">
+        <img src="./images/icon-success.svg" alt="" class="check" />
+        <h1 class="title">Thanks for subscribing!</h1>
+        <p class="description">
+          A confirmation email has been sent to
+          <strong class="submitted-email">ash@loremcompany.com</strong>. Please
+          open it and click the button inside to confirm your subscription.
+        </p>
+        <button type="button" class="dismiss-btn">Dismiss message</button>
+      </section>
+    </main>
 
-<body class="primary--success">
-  <main>
-    <section class="success">
-      <img src="./images/icon-success.svg" alt="" class="check">
-      <h1 class="title">Thanks for subscribing!</h1>
-      <p class="description">
-        A confirmation email has been sent to
-        <strong class="submitted-email">ash@loremcompany.com</strong>. Please open it and click the button inside to confirm
-        your subscription.
-      </p>
-      <button type="button" class="dismiss-btn">Dismiss message</button>
-    </section>
-  </main>
-
-  <!-- js modal -->
-  <dialog id="modal-notice" class="modal" aria-labelledby="modal-title">
-    <div class="modal-content">
-      <img src="./images/icon-success.svg" alt="" class="check">
-      <h1 id="modal-title" class="title">Thanks for subscribing!</h1>
-      <p class="description">
-        A confirmation email has been sent to
-        <strong class="submitted-email">ash@loremcompany.com</strong>. Please open it and click the button inside to confirm
-        your subscription.
-      </p>
-      <button type="button" class="dismiss-btn" autofocus>
-        Dismiss message
-      </button>
-    </div>
-  </dialog>
-</body>
-
+    <!-- js modal -->
+    <dialog id="modal-notice" class="modal" aria-labelledby="modal-title">
+      <div class="modal-content">
+        <img src="./images/icon-success.svg" alt="" class="check" />
+        <h1 id="modal-title" class="title">Thanks for subscribing!</h1>
+        <p class="description">
+          A confirmation email has been sent to
+          <strong class="submitted-email">ash@loremcompany.com</strong>. Please
+          open it and click the button inside to confirm your subscription.
+        </p>
+        <button type="button" class="dismiss-btn" autofocus>
+          Dismiss message
+        </button>
+      </div>
+    </dialog>
+  </body>
 </html>

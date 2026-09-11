@@ -35,13 +35,14 @@ button {
   border: 0;
 }
 
+/* This is something that always requires caution. */
 button:focus-visible {
   outline: 2px solid $bg-gray;
   outline-offset: 2px;
 }
 
 body {
-  @include m.font-style(16px, 400, 1);
+  @include m.font-style(1rem, 400, 1);
   display: flex;
   flex-direction: column;
   min-height: 90dvh;
@@ -50,26 +51,26 @@ body {
 }
 
 main {
-  width: min(390px, 100%);
+  width: min(24.375rem, 100%);
   flex: 1;
   margin: 0 auto;
 
   @include m.mq('tablet') {
-    width: min(780px, 100%);
+    width: min(48.75rem, 100%);
   }
 
   @include m.mq('desktop') {
-    width: min(1400px, 100%);
+    width: min(87.5rem, 100%);
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  /* 가입 */
+  /* 구독 */
   section.subscribe {
     width: min($card-width-mobile, 100%);
     margin: 0 auto;
-    padding-block-end: 44px;
+    padding-block-end: 2.75rem;
     background-color: $bg-white;
 
     display: flex;
@@ -77,8 +78,8 @@ main {
 
     @include m.mq('tablet') {
       width: min($card-width-tablet, 100%);
-      border-radius: 36px;
-      padding: 40px;
+      border-radius: 2.25rem;
+      padding: 2.5rem;
     }
 
     @include m.mq('desktop') {
@@ -89,30 +90,31 @@ main {
     }
 
     .illustration {
+      /* 부모 너비를 채움 */
       inline-size: 100%;
+      /* 부모보다 커지지 않음 */
       max-inline-size: 100%;
       block-size: auto;
-      object-fit: cover;
     }
 
     .newsletter {
-      padding: 0 24px;
+      padding: 0 1.5rem;
 
       .title {
-        margin-block-start: 40px;
-        @include m.font-style(40px, 700, 1);
+        margin-block-start: 2.5rem;
+        @include m.font-style(2.5rem, 700, 1);
         color: $bg-blue-800;
       }
 
       .description {
-        margin-block-start: 24px;
-        @include m.font-style(16px, 400, 1.5);
+        margin-block-start: 1.5rem;
+        @include m.font-style(1rem, 400, 1.5);
         color: $bg-blue-800;
       }
 
       .benefits {
-        margin-block-start: 24px;
-        @include m.font-style(16px, 400, 1.5);
+        margin-block-start: 1.5rem;
+        @include m.font-style(1rem, 400, 1.5);
 
         li {
           display: flex;
@@ -120,6 +122,7 @@ main {
 
           &::before {
             content: '';
+            /* 화면이 작아져도 찌그러 보이지 않게 */ 
             flex-shrink: 0;
             width: 1.3125rem;
             height: 1.3125rem;
@@ -129,31 +132,31 @@ main {
           }
 
           span {
-            margin-inline-start: 16px;
+            margin-inline-start: 1rem;
             flex: 1 1 0;
           }
 
           &:not(:first-child) {
-            margin-block-start: 8px;
+            margin-block-start: 0.5rem;
           }
         }
       }
 
       form {
-        margin-block-start: 40px;
+        margin-block-start: 2.5rem;
 
-        .input-box {
+        .label-row {
           display: flow-root;
 
           label {
             float: left;
-            @include m.font-style(12px, 700, 1.5);
+            @include m.font-style(0.75rem, 700, 1.5);
           }
 
           span {
             display: none;
             float: right;
-            @include m.font-style(12px, 700, 1.5);
+            @include m.font-style(0.75rem, 700, 1.5);
             color: $bg-red;
 
             &.invalid {
@@ -164,14 +167,14 @@ main {
         }
 
         input[name='email'] {
-          margin-block-start: 8px;
+          margin-block-start: 0.5rem;
           width: 100%;
-          padding: 16px 24px;
+          padding: 1rem 1.5rem;
           border: 1px solid $bg-gray;
-          border-radius: 8px;
+          border-radius: 0.5rem;
 
           &::placeholder {
-            @include m.font-style(16px, 400, 1.5);
+            @include m.font-style(1rem, 400, 1.5);
             color: $bg-gray;
           }
 
@@ -194,15 +197,14 @@ main {
             color: $bg-red;
             border-color: $bg-red;
           }
-
         }
 
         button {
-          margin-block-start: 24px;
+          margin-block-start: 1.5rem;
           width: 100%;
           background-color: $bg-blue-800;
-          padding: 16px 48px;
-          border-radius: 8px;
+          padding: 1rem 3rem;
+          border-radius: 0.5rem;
           color: $bg-white;
 
           &:hover {
@@ -219,8 +221,8 @@ main {
   section.success {
     width: min($card-width-mobile, 100%);
     margin: 0 auto;
-    margin-block-start: 149px;
-    padding-inline: 24px;
+    margin-block-start: 9.3125rem;
+    padding-inline: 1.5rem;
     background-color: $bg-white;
 
     @include m.mq('tablet') {
@@ -228,33 +230,33 @@ main {
     }
 
     .check {
-      width: 64px;
+      width: 4rem;
       aspect-ratio: 64 / 64;
     }
 
     .title {
-      margin-block-start: 32px;
-      @include m.font-style(40px, 700, 1.0);
+      margin-block-start: 2rem;
+      @include m.font-style(2.5rem, 700, 1);
     }
 
     .description {
-      margin-block-start: 32px;
+      margin-block-start: 2rem;
       color: $bg-blue-800;
-      @include m.font-style(16px, 400, 1.5);
+      @include m.font-style(1rem, 400, 1.5);
 
       strong {
-        @include m.font-style(16px, 700, 1.5);
+        @include m.font-style(1rem, 700, 1.5);
       }
     }
 
     .dismiss-btn {
-      margin-block-start: 263px;
+      margin-block-start: 16.4375rem;
       width: 100%;
-      padding: 16px 54px;
+      padding: 1rem 3.375rem;
       color: #fff;
       background-color: $bg-blue-800;
-      border-radius: 8px;
-      @include m.font-style(16px, 700, 1.5);
+      border-radius: 0.5rem;
+      @include m.font-style(1rem, 700, 1.5);
 
       &:hover {
         @include m.mq('tablet') {
@@ -277,7 +279,7 @@ main {
   margin: 0;
   border: none;
   padding: 0;
-  padding-block-end: 44px;
+  padding-block-end: 2.75rem;
   width: 100%;
   height: 100dvh;
   max-width: none;
@@ -294,13 +296,13 @@ main {
 
   .modal-content {
     background-color: #fff;
-    width: 504px;
-    border-radius: 36px;
+    width: 31.5rem;
+    border-radius: 2.25rem;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 64px;
+    padding: 4rem;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
     animation: slidefade 0.5s linear;
 
@@ -310,28 +312,28 @@ main {
     }
 
     .title {
-      margin-block-start: 32px;
-      @include m.font-style(56px, 700, 1.0);
+      margin-block-start: 2rem;
+      @include m.font-style(3.5rem, 700, 1);
     }
 
     .description {
-      margin-block-start: 32px;
+      margin-block-start: 2rem;
       color: $bg-blue-800;
-      @include m.font-style(16px, 400, 1.5);
+      @include m.font-style(1rem, 400, 1.5);
 
       strong {
-        @include m.font-style(16px, 700, 1.5);
+        @include m.font-style(1rem, 700, 1.5);
       }
     }
 
     .dismiss-btn {
-      margin-block-start: 32px;
+      margin-block-start: 2rem;
       width: 100%;
-      padding: 16px 54px;
+      padding: 1rem 3.375rem;
       color: #fff;
       background-color: $bg-blue-800;
       border-radius: 8px;
-      @include m.font-style(16px, 700, 1.5);
+      @include m.font-style(1rem, 700, 1.5);
 
       &:hover {
         background: $bg-gradient;
@@ -340,6 +342,7 @@ main {
   }
 }
 
+//footer
 .attribution {
   margin-top: auto;
   font-size: 0.6875rem;
@@ -347,5 +350,5 @@ main {
 }
 
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: #3e52a3;
 }

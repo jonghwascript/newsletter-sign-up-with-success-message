@@ -46,6 +46,7 @@ button {
   border: 0;
 }
 
+/* This is something that always requires caution. */
 button:focus-visible {
   outline: 2px solid #949494;
   outline-offset: 2px;
@@ -53,7 +54,7 @@ button:focus-visible {
 
 body {
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1;
   display: flex;
@@ -64,7 +65,7 @@ body {
 }
 
 main {
-  width: min(390px, 100%);
+  width: min(24.375rem, 100%);
   flex: 1;
   margin: 0 auto;
   /* 맵에 해당 기기 이름이 있는지 확인 */
@@ -72,7 +73,7 @@ main {
 }
 @media (min-width: 768px) {
   main {
-    width: min(780px, 100%);
+    width: min(48.75rem, 100%);
     /* 믹스인을 호출할 때 전달한 스타일이 여기에 쏙 들어갑니다 */
   }
 }
@@ -82,7 +83,7 @@ main {
 }
 @media (min-width: 1200px) {
   main {
-    width: min(1400px, 100%);
+    width: min(87.5rem, 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,12 +91,12 @@ main {
   }
 }
 main {
-  /* 가입 */
+  /* 구독 */
 }
 main section.subscribe {
   width: min(375px, 100%);
   margin: 0 auto;
-  padding-block-end: 44px;
+  padding-block-end: 2.75rem;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -105,8 +106,8 @@ main section.subscribe {
 @media (min-width: 768px) {
   main section.subscribe {
     width: min(608px, 100%);
-    border-radius: 36px;
-    padding: 40px;
+    border-radius: 2.25rem;
+    padding: 2.5rem;
     /* 믹스인을 호출할 때 전달한 스타일이 여기에 쏙 들어갑니다 */
   }
 }
@@ -124,34 +125,35 @@ main section.subscribe {
   }
 }
 main section.subscribe .illustration {
+  /* 부모 너비를 채움 */
   inline-size: 100%;
+  /* 부모보다 커지지 않음 */
   max-inline-size: 100%;
   block-size: auto;
-  object-fit: cover;
 }
 main section.subscribe .newsletter {
-  padding: 0 24px;
+  padding: 0 1.5rem;
 }
 main section.subscribe .newsletter .title {
-  margin-block-start: 40px;
+  margin-block-start: 2.5rem;
   font-family: "Roboto", sans-serif;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 700;
   line-height: 1;
   color: #242742;
 }
 main section.subscribe .newsletter .description {
-  margin-block-start: 24px;
+  margin-block-start: 1.5rem;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: #242742;
 }
 main section.subscribe .newsletter .benefits {
-  margin-block-start: 24px;
+  margin-block-start: 1.5rem;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -161,6 +163,7 @@ main section.subscribe .newsletter .benefits li {
 }
 main section.subscribe .newsletter .benefits li::before {
   content: "";
+  /* 화면이 작아져도 찌그러 보이지 않게 */
   flex-shrink: 0;
   width: 1.3125rem;
   height: 1.3125rem;
@@ -169,48 +172,48 @@ main section.subscribe .newsletter .benefits li::before {
   background-position: center center;
 }
 main section.subscribe .newsletter .benefits li span {
-  margin-inline-start: 16px;
+  margin-inline-start: 1rem;
   flex: 1 1 0;
 }
 main section.subscribe .newsletter .benefits li:not(:first-child) {
-  margin-block-start: 8px;
+  margin-block-start: 0.5rem;
 }
 main section.subscribe .newsletter form {
-  margin-block-start: 40px;
+  margin-block-start: 2.5rem;
 }
-main section.subscribe .newsletter form .input-box {
+main section.subscribe .newsletter form .label-row {
   display: flow-root;
 }
-main section.subscribe .newsletter form .input-box label {
+main section.subscribe .newsletter form .label-row label {
   float: left;
   font-family: "Roboto", sans-serif;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   line-height: 1.5;
 }
-main section.subscribe .newsletter form .input-box span {
+main section.subscribe .newsletter form .label-row span {
   display: none;
   float: right;
   font-family: "Roboto", sans-serif;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   line-height: 1.5;
   color: #ff6155;
 }
-main section.subscribe .newsletter form .input-box span.invalid {
+main section.subscribe .newsletter form .label-row span.invalid {
   display: block;
   color: #ff6155;
 }
 main section.subscribe .newsletter form input[name=email] {
-  margin-block-start: 8px;
+  margin-block-start: 0.5rem;
   width: 100%;
-  padding: 16px 24px;
+  padding: 1rem 1.5rem;
   border: 1px solid #949494;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 main section.subscribe .newsletter form input[name=email]::placeholder {
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: #949494;
@@ -237,11 +240,11 @@ main section.subscribe .newsletter form input[name=email].invalid {
   border-color: #ff6155;
 }
 main section.subscribe .newsletter form button {
-  margin-block-start: 24px;
+  margin-block-start: 1.5rem;
   width: 100%;
   background-color: #242742;
-  padding: 16px 48px;
-  border-radius: 8px;
+  padding: 1rem 3rem;
+  border-radius: 0.5rem;
   color: #ffffff;
 }
 main section.subscribe .newsletter form button:hover {
@@ -260,8 +263,8 @@ main {
 main section.success {
   width: min(375px, 100%);
   margin: 0 auto;
-  margin-block-start: 149px;
-  padding-inline: 24px;
+  margin-block-start: 9.3125rem;
+  padding-inline: 1.5rem;
   background-color: #ffffff;
   /* 맵에 해당 기기 이름이 있는지 확인 */
   /* 🌟 min-width 기준으로 미디어 쿼리 자동 생성 */
@@ -273,39 +276,39 @@ main section.success {
   }
 }
 main section.success .check {
-  width: 64px;
+  width: 4rem;
   aspect-ratio: 64/64;
 }
 main section.success .title {
-  margin-block-start: 32px;
+  margin-block-start: 2rem;
   font-family: "Roboto", sans-serif;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 700;
   line-height: 1;
 }
 main section.success .description {
-  margin-block-start: 32px;
+  margin-block-start: 2rem;
   color: #242742;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
 }
 main section.success .description strong {
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.5;
 }
 main section.success .dismiss-btn {
-  margin-block-start: 263px;
+  margin-block-start: 16.4375rem;
   width: 100%;
-  padding: 16px 54px;
+  padding: 1rem 3.375rem;
   color: #fff;
   background-color: #242742;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -330,7 +333,7 @@ main section.success .dismiss-btn:hover {
   margin: 0;
   border: none;
   padding: 0;
-  padding-block-end: 44px;
+  padding-block-end: 2.75rem;
   width: 100%;
   height: 100dvh;
   max-width: none;
@@ -343,13 +346,13 @@ main section.success .dismiss-btn:hover {
 }
 .modal .modal-content {
   background-color: #fff;
-  width: 504px;
-  border-radius: 36px;
+  width: 31.5rem;
+  border-radius: 2.25rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 64px;
+  padding: 4rem;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
   animation: slidefade 0.5s linear;
 }
@@ -358,35 +361,35 @@ main section.success .dismiss-btn:hover {
   aspect-ratio: 64/64;
 }
 .modal .modal-content .title {
-  margin-block-start: 32px;
+  margin-block-start: 2rem;
   font-family: "Roboto", sans-serif;
-  font-size: 56px;
+  font-size: 3.5rem;
   font-weight: 700;
   line-height: 1;
 }
 .modal .modal-content .description {
-  margin-block-start: 32px;
+  margin-block-start: 2rem;
   color: #242742;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
 }
 .modal .modal-content .description strong {
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.5;
 }
 .modal .modal-content .dismiss-btn {
-  margin-block-start: 32px;
+  margin-block-start: 2rem;
   width: 100%;
-  padding: 16px 54px;
+  padding: 1rem 3.375rem;
   color: #fff;
   background-color: #242742;
   border-radius: 8px;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -401,7 +404,6 @@ main section.success .dismiss-btn:hover {
 }
 
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: #3e52a3;
 }
-
 /*# sourceMappingURL=style.css.map */
