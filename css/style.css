@@ -61,7 +61,6 @@ body {
   min-height: 90dvh;
   margin: 0;
   background-color: #36384d;
-  --device-state: mobile;
 }
 
 main {
@@ -74,7 +73,6 @@ main {
 @media (min-width: 768px) {
   main {
     width: min(780px, 100%);
-    --device-state: tablet;
     /* 믹스인을 호출할 때 전달한 스타일이 여기에 쏙 들어갑니다 */
   }
 }
@@ -88,7 +86,6 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    --device-state: desktop;
     /* 믹스인을 호출할 때 전달한 스타일이 여기에 쏙 들어갑니다 */
   }
 }

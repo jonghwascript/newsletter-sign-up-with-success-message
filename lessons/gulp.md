@@ -29,7 +29,8 @@ function scssTask() {
     .src("src/scss/**/*.scss")
     .pipe(sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
-    .pipe(cleanCSS())
+    // .pipe(cleanCSS()) // minification is currently disabled so the
+    // compiled CSS stays readable while the project is still in progress
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("css"));
 }

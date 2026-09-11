@@ -135,7 +135,13 @@ mobile — where the `span` text wraps and takes up more room — the icon
 }
 ```
 
-# Exposing the current breakpoint to JS via a CSS custom property
+# Exposing the current breakpoint to JS via a CSS custom property (removed, kept as a note)
+
+> **Status: this experiment was removed from the codebase.** `--device-state`
+> no longer exists in `style.scss`, and `js/main.js` no longer reads it —
+> the form submit/validation logic replaced it entirely. Keeping this note
+> only as a record of the pattern and the pitfall below; don't expect to
+> find this in the current source.
 
 When you want JS to reuse the same breakpoints defined by the SCSS `mq()`
 mixin — without redefining them — you can store the current state as a

@@ -47,8 +47,6 @@ body {
   min-height: 90dvh;
   margin: 0;
   background-color: $bg-blue-700;
-
-  --device-state: mobile;
 }
 
 main {
@@ -58,7 +56,6 @@ main {
 
   @include m.mq('tablet') {
     width: min(780px, 100%);
-    --device-state: tablet;
   }
 
   @include m.mq('desktop') {
@@ -66,7 +63,6 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    --device-state: desktop;
   }
 
   /* 가입 */

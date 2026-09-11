@@ -1,4 +1,10 @@
-# Reading the breakpoint state (CSS custom property) from JS
+# Reading the breakpoint state (CSS custom property) from JS (removed, kept as a note)
+
+> **Status: this experiment was removed from the codebase.** `js/main.js`
+> no longer contains `logDeviceState`/`--device-state` — it was replaced by
+> the form submit/validation handlers below. The snippets here are kept
+> only as a record of the technique and its `getComputedStyle` caching
+> gotcha, not as a description of the current `main.js`.
 
 To let JS reuse the breakpoints defined by the `mq()` mixin in
 `_variables.scss` without redefining them, the current state is stored as

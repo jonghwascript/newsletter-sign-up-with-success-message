@@ -71,12 +71,14 @@ live in the [`lessons/`](./lessons) folder; the highlights:
   an explicit `width` renders at its intrinsic size; `max-inline-size: 100%`
   only caps growth. Adding `inline-size: 100%` alongside it was needed to
   make the illustration actually fill its container on tablet.
-- **CSS custom properties only inherit downward.** Declaring
-  `--device-state` on `body` and overriding it on `main` meant reading the
-  value from `document.body` in JS always returned the initial value —
-  the override never reaches an ancestor. See
-  [`lessons/js.md`](./lessons/js.md) for the working vanilla JS/jQuery
-  versions.
+- **CSS custom properties only inherit downward.** I experimented with
+  exposing the current breakpoint to JS via a `--device-state` custom
+  property, declaring it on `body` and overriding it on `main` — reading
+  the value from `document.body` in JS always returned the initial value,
+  since an override never reaches an ancestor. This experiment was later
+  removed from the codebase in favor of the form logic below, but the
+  pattern and pitfall are written up in
+  [`lessons/js.md`](./lessons/js.md) and [`lessons/css.md`](./lessons/css.md).
 - **Use the form's `submit` event, not the button's `click` event**, to
   gate logic on native HTML validation passing — the browser only fires
   `submit` after all required fields validate.
