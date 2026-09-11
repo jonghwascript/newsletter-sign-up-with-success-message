@@ -18,28 +18,28 @@
       <h1 class="title">Thanks for subscribing!</h1>
       <p class="description">
         A confirmation email has been sent to
-        <strong>ash@loremcompany.com</strong>. Please open it and click the button inside to confirm
-        your subscription. Dismiss message
+        <strong class="submitted-email">ash@loremcompany.com</strong>. Please open it and click the button inside to confirm
+        your subscription.
       </p>
       <button type="button" class="dismiss-btn">Dismiss message</button>
     </section>
   </main>
 
   <!-- js modal -->
-  <div id="modal-notice" class="modal">
+  <dialog id="modal-notice" class="modal" aria-labelledby="modal-title">
     <div class="modal-content">
       <img src="./images/icon-success.svg" alt="" class="check">
-      <h1 class="title">Thanks for subscribing!</h1>
+      <h1 id="modal-title" class="title">Thanks for subscribing!</h1>
       <p class="description">
         A confirmation email has been sent to
-        ash@loremcompany.com. Please open it and click the button inside to confirm
-        your subscription. Dismiss message
+        <strong class="submitted-email">ash@loremcompany.com</strong>. Please open it and click the button inside to confirm
+        your subscription.
       </p>
-      <button type="button" class="dismiss-btn">
+      <button type="button" class="dismiss-btn" autofocus>
         Dismiss message
       </button>
     </div>
-  </div>
+  </dialog>
 </body>
 
 </html>

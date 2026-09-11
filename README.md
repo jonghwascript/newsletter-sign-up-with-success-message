@@ -95,6 +95,41 @@ live in the [`lessons/`](./lessons) folder; the highlights:
   Showing a popup modal from tablet width up with `display: block` isn't
   enough on its own — the mobile full-screen version needs the matching
   `display: none` at the same breakpoint, or both render at once.
+- **`url()` paths in Sass resolve relative to the compiled CSS, not the
+  `.scss` source file.** `_fonts.scss` and `style.scss` live two levels
+  deep (`src/scss/`) and used `../../fonts` / `../../images`, which was
+  correct for their own location but not for `css/style.css` — one level
+  shallower. That extra `../` pointed outside the project entirely, so
+  the Roboto fonts and the benefits-list bullet icon silently failed once
+  actually deployed (locally the fallback font is close enough that it
+  went unnoticed).
+- **A `format()` hint has to match the real file type.** The `@font-face`
+  rules declared `format('woff2')` for files that are actually `.ttf`.
+  Browsers use that hint to decide whether to even attempt the download,
+  so a mismatched hint can make a font silently fail to load — it needs
+  to say `format('truetype')` unless the files are actually converted to
+  WOFF2.
+- **Carry real data across a full-page navigation via the URL.** The
+  success page originally hard-coded `ash@loremcompany.com` for every
+  visitor. Passing the submitted address as a query string
+  (`success.html?email=...`) and reading it back with `URLSearchParams`
+  on load was enough to show the address the user actually typed, without
+  needing `sessionStorage` or a backend.
+- **A custom validation message needs to be wired to the input, not just
+  styled to look connected.** A `<span>` next to an `<input>` that only
+  toggles a CSS class is invisible to assistive tech. The message needed
+  an `id` referenced by the input's `aria-describedby`, plus a live
+  `aria-invalid` attribute toggled alongside the visual `.invalid` class,
+  so a screen reader actually announces the custom text instead of (or
+  in addition to) the browser's generic one.
+- **A modal needs `<dialog>` + `showModal()`, not just a `div` styled to
+  look like one.** The success overlay was a plain `<div>` shown via a
+  CSS breakpoint — no accessible name, no focus trapping, no focus
+  returned anywhere on close. Switching it to a real `<dialog>` with
+  `aria-labelledby`, calling `.showModal()`/`.close()` from a
+  `matchMedia` listener tied to the same breakpoint, and handling the
+  native `cancel` event (Escape key) gets real dialog semantics and
+  keyboard-trap behavior for free from the browser.
 
 ### Continued development
 

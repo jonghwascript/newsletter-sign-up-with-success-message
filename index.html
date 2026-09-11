@@ -51,9 +51,9 @@
         <form id="signup-form">
           <div class="input-group">
             <div class="input-box">
-              <label for="email">Email address</label><span>Valid email required</span>
+              <label for="email">Email address</label><span id="email-error">Valid email required</span>
             </div>
-            <input type="email" name="email" id="email" placeholder="email@company.com" required />
+            <input type="email" name="email" id="email" placeholder="email@company.com" aria-describedby="email-error" aria-invalid="false" required />
             <button type="submit" class="subscribe-btn">Subscribe to monthly newsletter</button>
           </div>
         </form>

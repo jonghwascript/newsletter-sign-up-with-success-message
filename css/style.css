@@ -1,14 +1,14 @@
 @charset "UTF-8";
 @font-face {
   font-family: "Roboto", sans-serif;
-  src: url("../fonts/Roboto-Regular.ttf") format("woff2");
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Roboto", sans-serif;
-  src: url("../fonts/Roboto-Bold.ttf") format("woff2");
+  src: url("../fonts/Roboto-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -306,21 +306,20 @@ main section.success .dismiss-btn {
 
 .modal {
   position: fixed;
-  background-color: #36384d;
-  top: 0;
-  left: 0;
+  inset: 0;
+  margin: 0;
+  border: none;
+  padding: 0;
+  padding-block-end: 44px;
   width: 100%;
   height: 100dvh;
-  display: none;
-  padding-block-end: 44px;
-  /* 맵에 해당 기기 이름이 있는지 확인 */
-  /* 🌟 min-width 기준으로 미디어 쿼리 자동 생성 */
+  max-width: none;
+  max-height: none;
+  background: transparent;
+  color: inherit;
 }
-@media (min-width: 768px) {
-  .modal {
-    display: block;
-    /* 믹스인을 호출할 때 전달한 스타일이 여기에 쏙 들어갑니다 */
-  }
+.modal::backdrop {
+  background-color: #36384d;
 }
 .modal .modal-content {
   background-color: #fff;
