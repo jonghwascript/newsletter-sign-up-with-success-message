@@ -5,7 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <!-- jQuery UI CDN -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <link rel="stylesheet" href="./css/style.css" />
+  <script defer src="./js/main.js"></script>
 </head>
 
 <body class="primary--success">
@@ -20,6 +25,22 @@
       </p>
       <button class="dismiss-btn">Dismiss message</button>
   </main>
+
+  <!-- js modal -->
+  <div id="modal-notice" class="modal">
+    <div class="modal-content">
+      <img src="./images/icon-success.svg" alt="" class="check">
+      <h1 class="title">Thanks for subscribing!</h1>
+      <p class="description">
+        A confirmation email has been sent to
+        ash@loremcompany.com. Please open it and click the button inside to confirm
+        your subscription. Dismiss message
+      </p>
+      <button class="dismiss-btn">
+        Dismiss message
+      </button>
+    </div>
+  </div>
 </body>
 
 </html>

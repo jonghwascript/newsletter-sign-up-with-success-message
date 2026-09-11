@@ -61,6 +61,7 @@ body {
   min-height: 90dvh;
   margin: 0;
   background-color: #36384d;
+  --device-state: mobile;
 }
 
 main {
@@ -73,6 +74,7 @@ main {
 @media (min-width: 768px) {
   main {
     width: min(780px, 100%);
+    --device-state: tablet;
     /* 믹스인을 호출할 때 전달한 스타일이 여기에 쏙 들어갑니다 */
   }
 }
@@ -86,6 +88,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    --device-state: desktop;
     /* 믹스인을 호출할 때 전달한 스타일이 여기에 쏙 들어갑니다 */
   }
 }
@@ -221,6 +224,16 @@ main section.subscribe .newsletter form input[name=email]:focus {
 main section.subscribe .newsletter form input[name=email]:focus::placeholder {
   color: #242742;
 }
+main section.subscribe .newsletter form input[name=email]:focus ~ .subscribe-btn {
+  /* 맵에 해당 기기 이름이 있는지 확인 */
+  /* 🌟 min-width 기준으로 미디어 쿼리 자동 생성 */
+}
+@media (min-width: 768px) {
+  main section.subscribe .newsletter form input[name=email]:focus ~ .subscribe-btn {
+    background: linear-gradient(0deg, rgb(255, 106, 58) 0%, rgb(255, 82, 123) 100%);
+    /* 믹스인을 호출할 때 전달한 스타일이 여기에 쏙 들어갑니다 */
+  }
+}
 main section.subscribe .newsletter form input[name=email].invald {
   background-color: #ffe7e6;
   color: #ff6155;
@@ -238,7 +251,7 @@ main {
   /* success */
 }
 main section.success {
-  width: min(327px, 100%);
+  width: min(375px, 100%);
   margin: 0 auto;
   margin-block-start: 149px;
   padding-inline: 24px;
@@ -293,11 +306,16 @@ main section.success .dismiss-btn {
   left: 0;
   width: 100%;
   height: 100dvh;
-  display: block;
+  display: none;
   padding-block-end: 44px;
+  /* 맵에 해당 기기 이름이 있는지 확인 */
+  /* 🌟 min-width 기준으로 미디어 쿼리 자동 생성 */
 }
-.modal.active {
-  display: block;
+@media (min-width: 768px) {
+  .modal {
+    display: block;
+    /* 믹스인을 호출할 때 전달한 스타일이 여기에 쏙 들어갑니다 */
+  }
 }
 .modal .modal-content {
   background-color: #fff;

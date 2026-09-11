@@ -47,6 +47,8 @@ body {
   min-height: 90dvh;
   margin: 0;
   background-color: $bg-blue-700;
+
+  --device-state: mobile;
 }
 
 main {
@@ -56,6 +58,7 @@ main {
 
   @include m.mq('tablet') {
     width: min(780px, 100%);
+    --device-state: tablet;
   }
 
   @include m.mq('desktop') {
@@ -63,11 +66,12 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    --device-state: desktop;
   }
 
   /* 가입 */
   section.subscribe {
-    width: min(375px, 100%);
+    width: min($card-width-mobile, 100%);
     margin: 0 auto;
     padding-block-end: 44px;
     background-color: $bg-white;
@@ -76,13 +80,13 @@ main {
     flex-direction: column;
 
     @include m.mq('tablet') {
-      width: min(608px, 100%);
+      width: min($card-width-tablet, 100%);
       border-radius: 36px;
       padding: 40px;
     }
 
     @include m.mq('desktop') {
-      width: min(904px, 100%);
+      width: min($card-width-desktop, 100%);
       flex-direction: row-reverse;
       reading-flow: flex-visual;
       box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.08);
@@ -183,6 +187,12 @@ main {
             }
           }
 
+          &:focus~.subscribe-btn {
+            @include m.mq('tablet') {
+              background: $bg-gradient;
+            }
+          }
+
           &.invald {
             background-color: #ffe7e6;
             color: $bg-red;
@@ -205,7 +215,7 @@ main {
 
   /* success */
   section.success {
-    width: min(327px, 100%);
+    width: min($card-width-mobile, 100%);
     margin: 0 auto;
     margin-block-start: 149px;
     padding-inline: 24px;
@@ -247,7 +257,6 @@ main {
   background-color: $bg-white;
 }
 
-
 .modal {
   position: fixed;
   background-color: $bg-blue-700;
@@ -255,10 +264,10 @@ main {
   left: 0;
   width: 100%;
   height: 100dvh;
-  display: block;
+  display: none;
   padding-block-end: 44px;
 
-  &.active {
+  @include m.mq('tablet') {
     display: block;
   }
 
@@ -315,7 +324,3 @@ main {
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
-
-// @media (min-width: 768px) {}
-
-// @media (min-width: 1024px) {}

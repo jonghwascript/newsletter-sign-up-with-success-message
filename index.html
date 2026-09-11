@@ -5,7 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- displays site properly based on user's device -->
-
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <!-- jQuery UI CDN -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="./css/style.css" />
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
 
   <title>
@@ -13,6 +17,8 @@
   </title>
 
   <link rel="stylesheet" href="./css/style.css" />
+  <script defer src="./js/main.js"></script>
+
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution {
@@ -44,14 +50,14 @@
           <li><span>Measuring to ensure updates are a success</span></li>
           <li><span>And much more!</span></li>
         </ul>
-        <form>
+        <form id="signup-form">
           <div class="input-group">
             <div class="input-box">
               <label>Email address</label><span>Valid email required</span>
             </div>
             <input type="email" name="email" class="" placeholder="email@company.com" required />
+            <button type="submit" class="subscribe-btn">Subscribe to monthly newsletter</button>
           </div>
-          <button>Subscribe to monthly newsletter</button>
         </form>
       </div>
     </section>
@@ -63,22 +69,6 @@
     Coded by
     <a href="https://www.frontendmentor.io/profile/jonghwascript">jonghwascript</a>.
   </footer>
-
-  <!-- js modal -->
-  <div id="modal-notice" class="modal active">
-    <div class="modal-content">
-      <img src="./images/icon-success.svg" alt="" class="check">
-      <h1 class="title">Thanks for subscribing!</h1>
-      <p class="description">
-        A confirmation email has been sent to
-        ash@loremcompany.com. Please open it and click the button inside to confirm
-        your subscription. Dismiss message
-      </p>
-      <button class="dismiss-btn">
-        Dismiss message
-      </button>
-    </div>
-  </div>
 </body>
 
 </html>
